@@ -276,7 +276,8 @@ QString timeloop(QString time){
 }
 
 int f2(QString& v1,int&v2,int&v3){
-	return v1.arg(v2--).arg(v3++);
+	v1= v1.arg(v2--).arg(v3++);
+	return v2+v3+89;
 }
 
 QString fizzbuzz(int endNum){
@@ -305,7 +306,35 @@ QString f1(int& v1,int& v2,int &v3){
 	return r1;
 }
 
+int sequences(){
+#ifdef QT_DEBUG
+	QStringList answers{"3732423"};
+#endif
+	//Courtesy of Project Euler :)
+	QString prompt=R"(The following iterative sequence is defined for the set of positive integers:
 
+   n → n/2 (n is even)
+   n → 3n + 1 (n is odd)
+
+   Using the rule above and starting with 13, we generate the following sequence:
+   13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+
+It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms.
+Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.
+
+Which starting number, under 5 million, produces the longest chain?
+	)";
+	WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE),prompt.utf16(),prompt.size(),NULL,NULL);
+	QString a1("87c4bb5e8c10291d34096bde7b031ed0f62d789bdf3281b394bdc267ee98ab6d");
+	std::string str;
+	getline(std::cin,str);
+//	QCryptographicHash::hash(QString(str.c_str()).toUtf8(),QCryptographicHash::Sha256).toHex();
+	if(a1!=QCryptographicHash::hash(QString(str.c_str()).toUtf8(),QCryptographicHash::Sha256).toHex()){
+		qDebug()<<"Failed q1";
+		//failure!
+	}
+	return 0;
+}
 
 int main(){
 	QList<double> nommies;
@@ -313,9 +342,16 @@ int main(){
 	if(IsDebuggerPresent()){
 		return(12473);
 	}
-	SetConsoleOutputCP(CP_UTF8);
 #endif
-	gehinomShtaim();
+	sequences();
+//	QElapsedTimer timer;
+//	timer.start();
+
+//	qDebug()<<timer.elapsed();
+//	QCryptographicHash taters(QCryptographicHash::Sha256);
+//	taters.addData("3732423");
+//	qDebug()<<taters.result().toHex();
+//	gehinomShtaim();
 	std::cout<<"Welcome to the pit of despair!\nYou can check in any time you like, but you may never leave."<<std::endl<<std::endl;
 
 	std::cout<<"I swear I had something for this phase!"<<std::endl;
