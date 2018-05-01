@@ -213,6 +213,37 @@ QString timeloop(QString time){
 	return time;
 }
 
+int f2(QString& v1,int&v2,int&v3){
+	return v1.arg(v2--).arg(v3++);
+}
+
+QString fizzbuzz(int endNum){
+	QString res;
+	QMap<int,QString> mappy{{3,"%1"},{5,"%2"}};
+	for(int i=1;i<=endNum;++i){
+		QMapIterator<int,QString> itr(mappy);
+		bool found=false;
+		while(itr.hasNext()){
+			itr.next();
+			if(i%itr.key()==0){
+				found=true;
+				res+=itr.value();
+			}
+		}
+		if(!found){
+			res+=QString::number(i);
+		}
+	}
+	return res;
+}
+
+QString f1(int& v1,int& v2,int &v3){
+	QString r1=fizzbuzz(v1);
+	int r2=f2(r1,v2,v3);
+	return r1;
+}
+
+
 
 int main(/*int argc, char *argv[]*/){
 	//QCoreApplication a(argc, argv);
