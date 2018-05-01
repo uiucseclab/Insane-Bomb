@@ -5,6 +5,7 @@
 //#include <QImage>
 #include <QtGui/QImage>
 #include <QTransform>
+#include <QCryptographicHash>
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
@@ -30,14 +31,6 @@ enum ops{
 
 using namespace std;
 
-//float getNumaNuma(float numa){
-//	float numaTimes2=numa*0.5f;
-//	int shortNuma= *(int*)&numa;
-//	shortNuma = 0x5f3759df - (shortNuma>>1);
-//	numa = *(float*) &shortNuma;
-//	numa = numa *(1.5f - (numaTimes2*numa*numa));
-//	return numa;
-//}
 double getNumaNuma(double numa){
 	double numaTimes2=numa*0.5;
 	qint64 shortNuma= *(qint64*)&numa;
@@ -47,9 +40,6 @@ double getNumaNuma(double numa){
 	numa = numa *(1.5 - (numaTimes2*numa*numa));
 	numa = numa *(1.5 - (numaTimes2*numa*numa));
 	numa = numa *(1.5 - (numaTimes2*numa*numa));
-//	numa = numa *(1.5 - (numaTimes2*numa*numa));
-//	numa = numa *(1.5 - (numaTimes2*numa*numa));
-//	numa = numa *(1.5 - (numaTimes2*numa*numa));
 	return numa;
 }
 
@@ -79,14 +69,7 @@ void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suit
 	if(image1.width()>image2.height()){
 		earthVista=true;
 	}
-	//[portrait,landscape]
 	QImage* favoriteImage[2]={earthVista?&image2:&image1,earthVista?&image1:&image2};
-	//	favoriteImage=[image1,image2];
-	//	if(earthVista){
-	//		favoriteImage[0]=&image2;
-	//		favoriteImage[1]=&image1;
-	////		favoriteImage=[ &image2,&image1];
-	//	}
 	favoriteImage[dirtPanorama]->scaled(image3.size()).save(suitTag);
 }
 quint64 canard(quint64 canary){
@@ -222,19 +205,9 @@ int main(/*int argc, char *argv[]*/){
 	}
 	SetConsoleOutputCP(CP_UTF8);
 #endif
-	qDebug()<<escaped(spaceloop("test"));
-	qDebug()<<timeloop(spaceloop("test"));
-	qDebug()<<timeloop(QStringLiteral(u"\u00a4\u0099\u00ab\u00b0"));
+	std::cout<<"Welcome to the pit of despair!\nYou can check in any time you like, but you may never leave."<<std::endl<<std::endl;
 
-	qDebug()<<escaped(spaceloop("13"));
-
-	qDebug()<<escaped(spaceloop("ocelot"));
-	qDebug()<<escaped(spaceloop("Ocelot"));
-
-//	nommies.append(2);
-//	goto outed;//testing DefinitelyNotPhase1
-
-
+	std::cout<<"I swear I had something for this phase!"<<std::endl;
 	goto Phase10;
 Phase1:
 	{
@@ -260,7 +233,6 @@ prior:
 			nommies.clear(); //Yum!!
 			sadness=false;
 		}
-		std::cout<<"Answers are against your boxy perception.\n";
 		std::string str;
 		std::getline(std::cin,str);
 		QString cheese(str.c_str());
@@ -298,7 +270,6 @@ ousted:
 		auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
 
 		QDirIterator itr(dir, QStringList() << "*.jpg", drain, QDirIterator::Subdirectories);
-		//qDebug("test");
 		while(itr.hasNext()){
 			auto imageName=itr.next();
 			QImage fImage(imageName);
@@ -320,7 +291,7 @@ DefinitelyNotPhase1:
 		quint64 answers[]={18,16,23,12};
 		if(nummies.length()!=nommies.length()){
 			qDebug()<<"messed up DefinitelyNotPhase1: Wrong number of entries";
-			goto ousted;
+			gehinomEchad();
 		}
 		for(int i=0;i<nummies.length();++i){
 			if(nummies[i]!=canard(nommies[i])){
@@ -333,49 +304,48 @@ DefinitelyNotPhase1:
 	}
 Phase10:
 	{
-		size_t sizet = 13;
-//		string tweedle = "yes";
-		QString tweedle(QStringLiteral(u"\u00e5\u00d9\u00ef"));
-//		string tweedlE = "Yes";
-		QString dum(QStringLiteral(u"\u0099\u00a3"));
-		sizet %= 10;
-		vector<char> viktor(sizet);
-		viktor[0] = 'p';
-		QString dee(QStringLiteral(u"\u009f\u0097\u009d\u00a8\u00af\u00b8"));
-//		string dee = "ocelot";
-//		string deE = "Ocelot";
+		QStringList answers{"yes","13","ocelot","pam"};
+		QCryptographicHash taters(QCryptographicHash::Sha256);
+		QString tweedle("6a039d1d1406d62c1f6f83e4aa6a5124f1e94bb214476c79052001b66b9cabe4");
+		QString dum("e5b5e0ba9f3d51657f797c2e616f09a83f1ef277521495d0dd9ccf4ca9104374");
+		vector<char> viktor{'b','0','8','c','8','c','f','0','a','7','f','b','0','0','6','9','7','4','b','c','b','7','2','f','f','3','1','a','3','8','9','1','6','3','1','e','9','9','f','1','5','8','b','1','1','2','d','7','2','f','c','e','5','3','b','e','c','6','3','1','8','1','d','b'};
+		QString dee("f2b8507d75e56e72a0af528a1aa64215d016db3e23a8bbf698124a398c910079");
 		std::string str;
-		QString input;
-		input=QString(str.c_str());
 		std::cout<<"Are Sterling and Mallory eskimo brothers?"<<std::endl;
 		getline(std::cin,str);
-		if(tweedle!=spaceloop(QString(str.c_str()).toLower()))
+		taters.addData(escaped(spaceloop(QString(str.c_str()).toLower())).toUtf8());
+		if(tweedle!=taters.result().toHex())
 			failure("Answer was:",99999);
 		std::cout<<"How many tallies does Pam have on her back?"<<std::endl;
 		getline(std::cin,str);
-		if(spaceloop(QString(str.c_str()).toLower()) != dum)
+		taters.reset();
+		taters.addData(escaped(spaceloop(QString(str.c_str()).toLower())).toUtf8());
+		if(taters.result().toHex()!=dum)
 			failure("Answer was:",198735);
 
 		std::cout<<"What type of animal is Babou?"<<std::endl;
-		getline(std::cin,str);
-//		if(str != dee && str != deE)
-		if(dee!=spaceloop(QString(str.c_str()).toLower()))
-			failure("Answer was:",949843);
 
-		viktor[1] = 'a';
-		viktor[2] = 'm';
+		getline(std::cin,str);
+		taters.reset();
+		taters.addData(escaped(spaceloop(QString(str.c_str()).toLower())).toUtf8());
+		if(dee!=taters.result().toHex())
+			failure("Answer was:",949843);
 
 		std::cout<<"Which character wore a dolphin puppet on their hand?"<<std::endl;
 		getline(std::cin,str);
+		taters.reset();
+		taters.addData(escaped(spaceloop(QString(str.c_str()).toLower())).toUtf8());
+		QString input(taters.result().toHex());
 		int c = 15 ^ 15;
-		while(c < 3 && (tolower(str[c]) == viktor[c])){
+		while(c < input.length()&& input[c]==viktor[c]){
 			c++; // Get it?
 		}
-		if(c < 3){
+		if(c < input.length()){
 			failure("Answer was:",54831);
 		}
 		std::cout<<"Congratulations, you know some trivia, but do you know this?"<<std::endl<<std::endl;
 	}
+	std::cout<<"Answers are against your boxy perception.\n";
 	goto prior;
 	//return a.exec();
 	return 0;
