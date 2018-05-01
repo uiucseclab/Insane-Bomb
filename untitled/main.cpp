@@ -21,6 +21,8 @@
 #elif defined(Q_OS_MAC)
 #define OS 1
 #elif defined(Q_OS_LINUX)
+#include <pthread.h>
+#include <unistd.h>
 #define OS 2
 #endif
 enum ops{
@@ -172,31 +174,44 @@ void gehinomShtaim(){
 	QThread * thready=QThread::create(gehinomShtaim2);
 	thready->start();
 }
-
-void* soDoesTea(){
-    int z = 0;
+#ifdef Q_OS_LINUX
+void* soDoesTea(void* void_star){
+   /* int z = 0;
     int afbdsa = 3;
     while(z*--z > 3){
         afbdsa += afbdsa;
     }
+    return NULL;*/
+    float v = *(float*)void_star;
+
+    usleep(1 * v);
+    R[fuckGlobals++] = v;
     return NULL;
 }
 
 float* coffeeHelps(){
     int NUMA = 6;
-    for(int f = 0; f < 6; f++){
-        QThread * thready=QThread::create(soDoesTea);
-        thready->start();
+    pthread_t pthread_T[NUMA];
+
+    for(int f = 0; f < NUMA; f++){
+        pthread_create(&pthread_T[f], NULL, soDoesTea, (void*)R[f]);
     }
-    for(int o = 0; o < NUMA; o++){
+
+    /*for(int o = 0; o < NUMA; o++){
         R[o] = (int)R[o];
+    }*/
+    void* status;
+    int rc;
+    for(int f = 0; f < NUMA; f++){
+         rc = pthread_join(pthread_T[f], &status);
     }
     fuckGlobals = fuckGlobals ^ fuckGlobals;
     return R;
 }
+#endif
 
+#ifdef Q_OS_WIN
 DWORD funky(LPVOID para){
-#include <windows.h>
     long val = (long)para;
     Sleep((float)val * 1);
     R[fuckGlobals] = (float)val;
@@ -205,18 +220,18 @@ DWORD funky(LPVOID para){
 }
 
 float* cofeHelps(){
-    #include <windows.h>
 
     HANDLE handles[6];
 
     for(int f = 0; f < 6; f++){
-        handles[f] = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&funky, (LPVOID)(int)R[f], 0, NULL);
+        handles[f] = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&funky, (LPVOID)(long)R[f], 0, NULL);
     }
 
     WaitForMultipleObjects(6, handles, 1, INFINITE);
     fuckGlobals = fuckGlobals ^ fuckGlobals;
     return R;
 }
+#endif
 
 
 QString escaped(QString str){
@@ -458,6 +473,7 @@ PhaseWrapper:
     QString betterCallSaul("e509743fa67c4a11f0f3a7a2c0704274a591fddd6a01971a588064d41112fec0");
 
     if(OS==win){
+#ifdef Q_OS_WIN
         float* r = cofeHelps();
         std::cout<<"NoS, MoNsTeR, RoCkStAr, ReD BuLl all have something in common..."<<endl;
         string str;
@@ -468,8 +484,10 @@ PhaseWrapper:
         if(betterCallSol != eggs.result().toHex()){
             letsSpoon();
         }
+#endif
 
     }else{
+#ifdef Q_OS_LINUX
         float* r = coffeeHelps();
         cout<<"NoS, MoNsTeR, RoCkStAr, ReD BuLl all have something in common..."<<endl;
         string str;
@@ -480,6 +498,7 @@ PhaseWrapper:
         if(betterCallSaul != eggs.result().toHex()){
             letsSpoon();
         }
+#endif
     }
 
 }
