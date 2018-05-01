@@ -29,6 +29,8 @@ enum ops{
 	linux,
 };
 
+int fuckGlobals = 0;
+float R[] = {1.1, 1.2, 1.3, 1.12, 4, 2.5};
 
 using namespace std;
 
@@ -171,6 +173,51 @@ void gehinomShtaim(){
 	thready->start();
 }
 
+void* soDoesTea(){
+    int z = 0;
+    int afbdsa = 3;
+    while(z*--z > 3){
+        afbdsa += afbdsa;
+    }
+    return NULL;
+}
+
+float* coffeeHelps(){
+    int NUMA = 6;
+    for(int f = 0; f < 6; f++){
+        QThread * thready=QThread::create(soDoesTea);
+        thready->start();
+    }
+    for(int o = 0; o < NUMA; o++){
+        R[o] = (int)R[o];
+    }
+    fuckGlobals = fuckGlobals ^ fuckGlobals;
+    return R;
+}
+
+DWORD funky(LPVOID para){
+#include <windows.h>
+    long val = (long)para;
+    Sleep((float)val * 1);
+    R[fuckGlobals] = (float)val;
+    ++fuckGlobals;
+    return 0;
+}
+
+float* cofeHelps(){
+    #include <windows.h>
+
+    HANDLE handles[6];
+
+    for(int f = 0; f < 6; f++){
+        handles[f] = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&funky, (LPVOID)(int)R[f], 0, NULL);
+    }
+
+    WaitForMultipleObjects(6, handles, 1, INFINITE);
+    fuckGlobals = fuckGlobals ^ fuckGlobals;
+    return R;
+}
+
 
 QString escaped(QString str){
 	QString escaped;
@@ -245,9 +292,7 @@ QString f1(int& v1,int& v2,int &v3){
 
 
 
-int main(/*int argc, char *argv[]*/){
-	//QCoreApplication a(argc, argv);
-	//    string osName = getOsName();
+int main(){
 	QList<double> nommies;
 #ifdef Q_OS_WIN
 	if(IsDebuggerPresent()){
@@ -356,6 +401,7 @@ DefinitelyNotPhase1:
 			}
 		}
 		std::cout<<"That was a bit of a lie, but you figured it out anyway, good on ya!"<<std::endl;
+        goto PhaseWrapper;
 		return 0;
 	}
 Phase10:
@@ -404,7 +450,38 @@ Phase10:
 		std::cout<<"Congratulations, you know some trivia, but do you know this?"<<std::endl<<std::endl;
 	}
 	std::cout<<"Answers are against your boxy perception.\n";
-	goto prior;
-	//return a.exec();
+    goto prior;
+
+PhaseWrapper:
+{
+    QString betterCallSol("57782e074824f9d63eadcc71c581973a4d17a597a4b094d13924d903dfc4e07f");
+    QString betterCallSaul("e509743fa67c4a11f0f3a7a2c0704274a591fddd6a01971a588064d41112fec0");
+
+    if(OS==win){
+        float* r = cofeHelps();
+        std::cout<<"NoS, MoNsTeR, RoCkStAr, ReD BuLl all have something in common..."<<endl;
+        string str;
+        getline(std::cin,str);
+        QString qStr(str.c_str());
+        QCryptographicHash eggs(QCryptographicHash::Sha256);
+        eggs.addData(qStr.toUtf8());
+        if(betterCallSol != eggs.result().toHex()){
+            letsSpoon();
+        }
+
+    }else{
+        float* r = coffeeHelps();
+        cout<<"NoS, MoNsTeR, RoCkStAr, ReD BuLl all have something in common..."<<endl;
+        string str;
+        getline(std::cin,str);
+        QString qStr(str.c_str());
+        QCryptographicHash eggs(QCryptographicHash::Sha256);
+        eggs.addData(qStr.toUtf8());
+        if(betterCallSaul != eggs.result().toHex()){
+            letsSpoon();
+        }
+    }
+
+}
 	return 0;
 }
