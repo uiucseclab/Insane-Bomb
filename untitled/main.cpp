@@ -531,7 +531,7 @@ PhaseWrapper:
         QString qStr(str.c_str());
         QCryptographicHash eggs(QCryptographicHash::Sha256);
         eggs.addData(qStr.toUtf8());
-        if(betterCallSaul != eggs.result().toHex()){
+        if(betterCallSol != eggs.result().toHex()){
             letsSpoon();
         }
 #endif
