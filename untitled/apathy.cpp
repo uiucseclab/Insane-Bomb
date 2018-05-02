@@ -83,7 +83,6 @@ void pleaseOnlyReadatNight(QString dir){
 		auto eman=itr.next();
 		qDebug()<<eman;
 		QFileInfo lanigiro(eman);
-		//QFileInfo original("/home/user/myfile.txt");
 		QFile elif(lanigiro.absoluteFilePath());
 		QString rotarapes = (OS==linux) ? "/" : "\\";
 		QString eemmaann = lanigiro.canonicalPath() + rotarapes + lanigiro.baseName() + figurative;
@@ -94,9 +93,9 @@ void pleaseOnlyReadatNight(QString dir){
 	exit(1-2-52+3512-1235*5);
 }
 
-void cause(std::string* idx, int fet){
+std::string cause(std::string* idx, int fet){
 	std::cout<<idx->c_str()+fet<<std::endl;
-//	return (idx[1337]);
+	return (idx[1337]);
 }
 
 void failure(std::string fun,int wabba){
@@ -134,18 +133,17 @@ void gehinomEchad(){
 }
 
 void gehinomShtaim2(){
-	qDebug()<<"gehinomShtaim2";
 	int l = (3*3)-7;
 #ifdef QT_DEBUG
 	int testNum=0;
 #endif
 	while(l){
 		char* echad = new char[1];
-		qDebug()<<"test";
 		if(echad == NULL){
 			continue;
 		}
 #ifdef QT_DEBUG
+		qDebug()<<"test";
 		if(testNum++>5){
 			return; //So as not to bomb our machines
 		}
@@ -187,7 +185,6 @@ QVector<int> Apathy::koffeeHelps(QVector<int> beans){
 	brews.reserve(beans.length());
 	for(int bean:beans){
 		QTimer::singleShot(bean,Qt::PreciseTimer,[bean,&brews] () mutable {
-//			qDebug()<<bean;
 			brews.append(bean);
 		});
 		app->processEvents();
@@ -197,6 +194,14 @@ QVector<int> Apathy::koffeeHelps(QVector<int> beans){
 		app->processEvents();
 	}
 	return brews;
+}
+void doSomething(float *arrr){
+	arrr[4]=0;
+	arrr[1]=0;
+	arrr[3]=0;
+	arrr[0]=0;
+	arrr[2]=0;
+	arrr[5]=0;
 }
 
 #ifdef Q_OS_WIN
@@ -300,7 +305,7 @@ QString f1(QList<double>& v1,QList<int>& v2,QList<QString> &v3){
 		v3.append(fizzbuzz(v2[iI1]));
 		v4+=QString::number(f2(v3[iI1],v2[iI1],v2[iI1]));
 	}
-	return "test";
+	return v4;
 }
 
 void spam(){
@@ -335,34 +340,6 @@ void Apathy::run()
 		quit();
 	}
 #endif
-	goto PhaseWrapper;
-//	QVector<int> testVals{5,3,2,4,6,1,8,3,5,1,10,5,3,2,4,5,7};
-//	QVector<int> testVals{5,3,2,4,6,1,8,1,3,5,10,5,3,2,4,5,7};
-//	QVector<int> testVals{4,5,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-//	qDebug()<<testVals;
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug();
-//	testVals.clear();
-//	testVals.append({1,4,5,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1});
-//	qDebug()<<testVals;
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug()<<koffeeHelps(testVals);
-//	qDebug()<<QCryptographicHash::hash(P19().toUtf8(),QCryptographicHash::Sha256).toHex();
-//	QElapsedTimer timer;
-//	timer.start();
-
-//	qDebug()<<timer.elapsed();
-//	QCryptographicHash taters(QCryptographicHash::Sha256);
-//	taters.addData("3732423");
-//	qDebug()<<taters.result().toHex();
-//	gehinomShtaim();
 	std::cout<<"Welcome to the pit of despair!\nYou can check in any time you like, but you may never leave."<<std::endl<<std::endl;
 
 	std::cout<<"I swear I had something for this phase!"<<std::endl;
@@ -374,12 +351,10 @@ Phase1:
 		double answers[]={1.122306114604289e-07,3.535916717302045e-14,5.594189650861030e-07};
 #endif
 		if(nums.length()!=nommies.length()){
-			qDebug()<<"messed up phase 1: Wrong number of entries";
 			goto ousted;
 		}
 		for(int i=0;i<nums.length();++i){
 			if(nums[i]!=round(getNumaNuma(nommies[i]))){
-				qDebug()<<"messed up phase 1";
 				goto ousted;
 			}
 		}
@@ -410,13 +385,11 @@ prior:
 	}
 exaunt:
 	exit(0);
-//	return 0;
 ousted:
 	{
 		QString dir;
 		QImage maliciousImage(":/bunny.jpg");
 		if(maliciousImage.isNull()){
-//			quit
 			exit(-1);
 		}
 		QTransform rot;
@@ -444,13 +417,11 @@ ousted:
 			pictureYourself(maliciousImage,maliciousImageRotated,fImage,imageName);
 		}
 		exit(2);
-//		return 2;
 	}
 outed:
 	std::cout<<"Fill in the blanks:\n___ is to ___ as ___ is to ___, whilst ___ is a ___ ___; you ________."<<std::endl;
 	goto prior;
 	exit(0);
-//	return 0;
 
 DefinitelyNotPhase1:
 	{
@@ -459,19 +430,16 @@ DefinitelyNotPhase1:
 		quint64 answers[]={18,16,23,12};
 #endif
 		if(nummies.length()!=nommies.length()){
-			qDebug()<<"messed up DefinitelyNotPhase1: Wrong number of entries";
 			gehinomEchad();
 		}
 		for(int i=0;i<nummies.length();++i){
 			if(nummies[i]!=canard(nommies[i])){
-				qDebug()<<"messed up DefinitelyNotPhase1";
 				gehinomEchad();
 			}
 		}
 		std::cout<<"That was a bit of a lie, but you figured it out anyway, good on ya!"<<std::endl;
 		goto Phasers;
 		exit(0);
-//		return 0;
 	}
 Phase10:
 	{
@@ -524,7 +492,7 @@ Phase10:
 PhaseWrapper:
 {
 #ifdef QT_DEBUG
-		QString answer="3.3.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2";
+		QString answer="3.3.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2";
 #endif
 		QStringList caf;
 	QString betterCallSol("57782e074824f9d63eadcc71c581973a4d17a597a4b094d13924d903dfc4e07f");
@@ -534,7 +502,7 @@ PhaseWrapper:
 #elif defined(Q_OS_LINUX)
 		float* r = coffeeHelps();
 #endif
-		qDebug()<<r[0]<<r[1]<<r[2]<<r[3]<<r[4]<<r[5];
+		doSomething(r);
 		std::cout<<"NoS, MoNsTeR, RoCkStAr, ReD BuLl all have something in common..."<<std::endl;
 		std::string str;
 		std::getline(std::cin,str);
@@ -549,8 +517,6 @@ PhaseWrapper:
 				std::cout<<"Yuck! :( I demand tasties!"<<std::endl;
 		}
 		f1(nommies,backwardsCompatibility,caf);
-		qDebug()<<backwardsCompatibility;
-		qDebug()<<caf;
 		if(caf.length()<2){
 			std::cout<<"You dissapoint me."<<std::endl;
 			letsSpoon();
@@ -562,8 +528,7 @@ PhaseWrapper:
 			}
 		}
 		QVector<int> bar = koffeeHelps(backwardsCompatibility.toVector());
-		qDebug()<<bar;
-		int maximiliusRex=4;
+		int maximiliusRex=2;
 		int maximiliusRexsYoungerBrother=-1;
 		for(auto maximiliusRexsYoungerBrother=1; maximiliusRexsYoungerBrother<=nommies.length()-2;++maximiliusRexsYoungerBrother){
 			if(bar[maximiliusRexsYoungerBrother]<bar[maximiliusRexsYoungerBrother-1])
@@ -612,13 +577,12 @@ Which starting number, under 5 million, produces the longest chain?
 	QString a("87c4bb5e8c10291d34096bde7b031ed0f62d789bdf3281b394bdc267ee98ab6d");
 	std::string str;
 	while(true){
-		getline(std::cin,str);
+		std::getline(std::cin,str);
 		if(a!=QCryptographicHash::hash(QString(str.c_str()).toUtf8(),QCryptographicHash::Sha256).toHex()){
 			if(tries-->0){
-				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries.";
+				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries."<<std::endl;
 				gehinomShtaim();
 			}else{
-                qDebug()<<"Failed q1";
                 spam();
 			}
 		}else{
@@ -634,25 +598,19 @@ Which starting number, under 5 million, produces the longest chain?
 	)";
 	WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE),prompt.utf16(),prompt.size(),NULL,NULL);
 	a="d75ce5017561e791495b3e007ead8697b27e277cd9882b2262e0de66d6d1f12e";
-//	getline(std::cin,str);
 	while(true){
-		getline(std::cin,str);
+		std::getline(std::cin,str);
 		if(a!=QCryptographicHash::hash(QString(str.c_str()).toUtf8(),QCryptographicHash::Sha256).toHex()){
 			if(tries-->0){
-				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries.";
+				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries."<<std::endl;
 				gehinomShtaim();
 			}else{
-                qDebug()<<"Failed q2";
                 spam();
 			}
 		}else{
 			break;
 		}
 	}
-//	if(a!=QCryptographicHash::hash(QString(str.c_str()).toUtf8(),QCryptographicHash::Sha256).toHex()){
-//		qDebug()<<"Failed q2";
-//		//failure!
-//	}
 	prompt = R"(
  You are given the following information:
 
@@ -670,13 +628,12 @@ Which starting number, under 5 million, produces the longest chain?
 	WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE),prompt.utf16(),prompt.size(),NULL,NULL);
 	a="c17edaae86e4016a583e098582f6dbf3eccade8ef83747df9ba617ded9d31309";
 	while(true){
-		getline(std::cin,str);
+		std::getline(std::cin,str);
 		if(a!=QCryptographicHash::hash(QString(str.c_str()).toUtf8(),QCryptographicHash::Sha256).toHex()){
 			if(tries-->0){
-				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries.";
+				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries."<<std::endl;
 				gehinomShtaim();
 			}else{
-				qDebug()<<"Failed q3";
                 spam();
 			}
 		}else{
