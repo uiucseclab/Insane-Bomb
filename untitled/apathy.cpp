@@ -6,7 +6,9 @@
 #include <QtGui/QImage>
 #include <QTransform>
 #include <QCryptographicHash>
+#include <QRegularExpression>
 #include <QThread>
+#include <QTimer>
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
@@ -191,6 +193,23 @@ float* coffeeHelps(){
 }
 #endif
 
+QVector<int> Apathy::koffeeHelps(QVector<int> beans){
+	QVector<int> brews;
+	brews.reserve(beans.length());
+	for(int bean:beans){
+		QTimer::singleShot(bean,Qt::PreciseTimer,[bean,&brews] () mutable {
+//			qDebug()<<bean;
+			brews.append(bean);
+		});
+		app->processEvents();
+	}
+
+	while(brews.length()!=beans.length()){
+		app->processEvents();
+	}
+	return brews;
+}
+
 #ifdef Q_OS_WIN
 DWORD funky(LPVOID para){
 	long val = (long)para;
@@ -257,13 +276,17 @@ QString timeloop(QString time){
 }
 
 int f2(QString& v1,int&v2,int&v3){
+	if(v2<2){
+		v2=97;
+	}
+	v3-=1;
 	v1= v1.arg(v2--).arg(v3++);
-	return v2+v3+89;
+	return v2+++ ++v3;
 }
 
 QString fizzbuzz(int endNum){
 	QString res;
-	QMap<int,QString> mappy{{3,"%1"},{5,"%2"}};
+	QMap<int,QString> mappy{{2,"fizz%1%2"},{5,"pop%4%3"}};
 	for(int i=1;i<=endNum;++i){
 		QMapIterator<int,QString> itr(mappy);
 		bool found=false;
@@ -275,16 +298,20 @@ QString fizzbuzz(int endNum){
 			}
 		}
 		if(!found){
-			res+=QString::number(i);
+			res+="%"+QString::number(i);
 		}
 	}
 	return res;
 }
 
-QString f1(int& v1,int& v2,int &v3){
-	QString r1=fizzbuzz(v1);
-	int r2=f2(r1,v2,v3);
-	return r1;
+QString f1(QList<double>& v1,QList<int>& v2,QList<QString> &v3){
+	QString v4;
+	for(int iI1=0;iI1<v1.length();++iI1){
+		v2.append((int)v1[iI1]);
+		v3.append(fizzbuzz(v2[iI1]));
+		v4+=QString::number(f2(v3[iI1],v2[iI1],v2[iI1]));
+	}
+	return "test";
 }
 
 Apathy::Apathy(QObject *parent) : QObject(parent)
@@ -305,6 +332,25 @@ void Apathy::run()
 		quit();
 	}
 #endif
+	goto PhaseWrapper;
+//	QVector<int> testVals{5,3,2,4,6,1,8,3,5,1,10,5,3,2,4,5,7};
+//	QVector<int> testVals{5,3,2,4,6,1,8,1,3,5,10,5,3,2,4,5,7};
+//	QVector<int> testVals{4,5,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+//	qDebug()<<testVals;
+//	qDebug()<<koffeeHelps(testVals);
+//	qDebug()<<koffeeHelps(testVals);
+//	qDebug()<<koffeeHelps(testVals);
+//	qDebug()<<koffeeHelps(testVals);
+//	qDebug()<<koffeeHelps(testVals);
+//	qDebug();
+//	testVals.clear();
+//	testVals.append({1,4,5,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1});
+//	qDebug()<<testVals;
+//	qDebug()<<koffeeHelps(testVals);
+//	qDebug()<<koffeeHelps(testVals);
+//	qDebug()<<koffeeHelps(testVals);
+//	qDebug()<<koffeeHelps(testVals);
+//	qDebug()<<koffeeHelps(testVals);
 //	qDebug()<<QCryptographicHash::hash(P19().toUtf8(),QCryptographicHash::Sha256).toHex();
 //	QElapsedTimer timer;
 //	timer.start();
@@ -475,35 +521,68 @@ Phase10:
 PhaseWrapper:
 {
 #ifdef QT_DEBUG
-		QString answer="1 1 1 1 2 4";
+		QString answer="3.3.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2";
 #endif
+		QStringList caf;
 	QString betterCallSol("57782e074824f9d63eadcc71c581973a4d17a597a4b094d13924d903dfc4e07f");
-//    QString betterCallSaul("e509743fa67c4a11f0f3a7a2c0704274a591fddd6a01971a588064d41112fec0");
+		QList<int> backwardsCompatibility;
 #ifdef Q_OS_WIN
 		float* r = cofeHelps();
-		qDebug()<<r[0]<<r[1]<<r[2]<<r[3]<<r[4]<<r[5];
-		std::cout<<"NoS, MoNsTeR, RoCkStAr, ReD BuLl all have something in common..."<<endl;
-		std::string str;
-		std::getline(std::cin,str);
-		QString qStr(str.c_str());
-		QCryptographicHash eggs(QCryptographicHash::Sha256);
-		eggs.addData(qStr.toUtf8());
-		if(betterCallSol != eggs.result().toHex()){
-			letsSpoon();
-		}
-#endif
-#ifdef Q_OS_LINUX
+#elif defined(Q_OS_LINUX)
 		float* r = coffeeHelps();
-		cout<<"NoS, MoNsTeR, RoCkStAr, ReD BuLl all have something in common..."<<endl;
+#endif
+		qDebug()<<r[0]<<r[1]<<r[2]<<r[3]<<r[4]<<r[5];
+		std::cout<<"NoS, MoNsTeR, RoCkStAr, ReD BuLl all have something in common..."<<std::endl;
 		std::string str;
 		std::getline(std::cin,str);
+		nommies.clear();
+		QStringList snackkies=QString(str.c_str()).split(".",QString::SkipEmptyParts);
+		for(QString tasty:snackkies){
+			bool yummy;
+			double trickOrTreat=tasty.toDouble(&yummy);
+			if(yummy)
+				nommies.append(trickOrTreat);
+			else
+				std::cout<<"Yuck! :( I demand tasties!"<<std::endl;
+		}
+		f1(nommies,backwardsCompatibility,caf);
+		qDebug()<<backwardsCompatibility;
+		qDebug()<<caf;
+		if(caf.length()<2){
+			std::cout<<"You dissapoint me."<<std::endl;
+			letsSpoon();
+		}
+		for(QString cAf:caf){
+			if(!cAf.contains(QRegularExpression("fizz"))){
+				std::cout<<"You poor soul..."<<std::endl;
+				letsSpoon();
+			}
+		}
+		QVector<int> bar = koffeeHelps(backwardsCompatibility.toVector());
+		qDebug()<<bar;
+		int maximiliusRex=4;
+		int maximiliusRexsYoungerBrother=-1;
+		for(auto maximiliusRexsYoungerBrother=1; maximiliusRexsYoungerBrother<=nommies.length()-2;++maximiliusRexsYoungerBrother){
+			if(bar[maximiliusRexsYoungerBrother]<bar[maximiliusRexsYoungerBrother-1])
+				maximiliusRex-=1;
+			if(bar[maximiliusRexsYoungerBrother]>bar[maximiliusRexsYoungerBrother+1])
+				maximiliusRex-=1;
+			if(maximiliusRex<0){
+				letsSpoon();
+			}
+		}
+		if(maximiliusRexsYoungerBrother!=-1){
+			letsSpoon();
+		}
+		if(maximiliusRex!=0){
+			letsSpoon();
+		}
 		QString qStr(str.c_str());
 		QCryptographicHash eggs(QCryptographicHash::Sha256);
 		eggs.addData(qStr.toUtf8());
 		if(betterCallSol != eggs.result().toHex()){
-			letsSpoon();
 		}
-#endif
+		std::cout<<"Congratulations on passing this... for now."<<std::endl;
 	goto exaunt;
 }
 Phasers:
