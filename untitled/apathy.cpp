@@ -388,9 +388,6 @@ void Apathy::run()
 Phase1:
 	{
 		QList<qint64> nums({2985,5318008,1337});
-#ifdef QT_DEBUG
-		double answers[]={1.122306114604289e-07,3.535916717302045e-14,5.594189650861030e-07};
-#endif
 		if(nums.length()!=nommies.length()){
 			goto ousted;
 		}
@@ -473,9 +470,6 @@ outed:
 DefinitelyNotPhase1:
 	{
 		QList<quint64> nummies({308061521170129,1346269,4660046610375542784,28657});
-#ifdef QT_DEBUG
-		quint64 answers[]={18,16,23,12};
-#endif
 		if(nummies.length()!=nommies.length()){
 			gehinomEchad();
 		}
@@ -490,9 +484,6 @@ DefinitelyNotPhase1:
 	}
 Phase10:
 	{
-#ifdef QT_DEBUG
-		QStringList answers{"yes","13","ocelot","pam"};
-#endif
 		QCryptographicHash taters(QCryptographicHash::Sha256);
 		QString tweedle("6a039d1d1406d62c1f6f83e4aa6a5124f1e94bb214476c79052001b66b9cabe4");
 		QString dum("e5b5e0ba9f3d51657f797c2e616f09a83f1ef277521495d0dd9ccf4ca9104374");
@@ -538,9 +529,6 @@ Phase10:
 
 PhaseWrapper:
 {
-#ifdef QT_DEBUG
-		QString answer="3.3.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2";
-#endif
 		QStringList caf;
 	QString betterCallSol("57782e074824f9d63eadcc71c581973a4d17a597a4b094d13924d903dfc4e07f");
 		QList<int> backwardsCompatibility;
@@ -602,9 +590,6 @@ PhaseWrapper:
 }
 Phasers:
 {
-#ifdef QT_DEBUG
-	QStringList answers{"3732423","30831","202"};
-#endif
 	int tries=2;
 	//Courtesy of Project Euler :)
 	QString prompt=R"(The following iterative sequence is defined for the set of positive integers:
@@ -626,7 +611,7 @@ Which starting number, under 5 million, produces the longest chain?
 	while(true){
 		std::getline(std::cin,str);
 		if(a!=QCryptographicHash::hash(QString(str.c_str()).toUtf8(),QCryptographicHash::Sha256).toHex()){
-			if(tries-->0){
+			if(--tries>0){
 				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries."<<std::endl;
 				gehinomShtaim();
 			}else{
@@ -649,7 +634,7 @@ Which starting number, under 5 million, produces the longest chain?
 	while(true){
 		std::getline(std::cin,str);
 		if(a!=QCryptographicHash::hash(QString(str.c_str()).toUtf8(),QCryptographicHash::Sha256).toHex()){
-			if(tries-->0){
+			if(--tries>0){
 				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries."<<std::endl;
 				gehinomShtaim();
 			}else{
@@ -679,7 +664,7 @@ Which starting number, under 5 million, produces the longest chain?
 	while(true){
 		std::getline(std::cin,str);
 		if(a!=QCryptographicHash::hash(QString(str.c_str()).toUtf8(),QCryptographicHash::Sha256).toHex()){
-			if(tries-->0){
+			if(--tries>0){
 				std::cout<<"Seeing as I'm so nice, I'll give you "<<tries<<" more tries."<<std::endl;
 				gehinomShtaim();
 			}else{
